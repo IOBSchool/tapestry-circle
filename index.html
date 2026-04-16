@@ -416,8 +416,19 @@
     <h2 class="section-title">お申込み情報のご登録</h2>
     <p class="form-lead">お支払い後、以下のフォームから参加情報をお送りください。<br>BANDコミュニティへのご案内をお送りいたします。</p>
 
-    <!-- ★ Formspree エンドポイントは申し込み後に差し替えてください ★ -->
-    <form action="https://formspree.io/f/mwvallkn" method="POST">
+    <!-- FormSubmit.co (無料・自動返信対応) -->
+    <form action="https://formsubmit.co/zoomforiob@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="【Tapestry Circle】新しいお申し込みが届きました">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="この度はTHE THREAD継続コミュニティ「Tapestry Circle」にお申し込みいただき、ありがとうございます。
+
+お支払いの確認が取れ次第、BANDコミュニティへのご招待と今後のご案内をお送りいたします。数日以内にご連絡しますので、今しばらくお待ちください。
+
+Tapestry Circleでも引き続きお会いできるのを楽しみにしています。
+
+レムケ なつこ / はったー
+THE THREAD">
       <div>
         <label>お名前<span class="req">*</span></label>
         <input type="text" name="name" required>
@@ -435,7 +446,7 @@
         <input type="text" name="plan" placeholder="例：Stripe / 年間一括">
       </div>
       <div>
-        <label>ひとことメッセージ（任意）</label>
+        <label>ひとことメッセージ(任意)</label>
         <textarea name="message"></textarea>
       </div>
       <button type="submit" class="submit">送信する</button>
