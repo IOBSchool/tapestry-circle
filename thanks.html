@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お申し込みありがとうございました｜Tapestry Circle</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #2a2a2e;
+    --ink-soft: #555;
+    --bg: #f6f3ee;
+    --line: #d9d3c7;
+    --accent: #8a1e3f;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Serif JP", serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .threads {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    background: linear-gradient(180deg, #faf8f4 0%, #f3ede3 100%);
+  }
+  .threads::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(224, 72, 72, 0.45) 0 8px, transparent 8px 22px,
+        rgba(210, 160, 160, 0.4) 22px 30px, transparent 30px 46px,
+        rgba(120, 78, 60, 0.45) 46px 54px, transparent 54px 72px,
+        rgba(238, 210, 110, 0.5) 72px 82px, transparent 82px 98px,
+        rgba(210, 60, 130, 0.45) 98px 108px, transparent 108px 128px,
+        rgba(160, 180, 80, 0.45) 128px 138px, transparent 138px 156px,
+        rgba(230, 210, 180, 0.4) 156px 166px, transparent 166px 188px
+      );
+    filter: blur(0.3px);
+    opacity: 0.85;
+  }
+
+  .wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+  }
+
+  .card {
+    position: relative;
+    z-index: 2;
+    background: rgba(253, 251, 247, 0.92);
+    backdrop-filter: blur(2px);
+    padding: 72px 56px;
+    max-width: 680px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.7);
+  }
+
+  .label {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: clamp(36px, 6vw, 56px);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 500;
+    margin-bottom: 36px;
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 36px;
+  }
+
+  .message {
+    font-size: 15.5px;
+    line-height: 2.1;
+    color: var(--ink);
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .message p + p { margin-top: 1em; }
+
+  .next-steps {
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    padding: 24px 28px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .next-steps-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .next-steps ol {
+    padding-left: 20px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+  .next-steps li + li { margin-top: 6px; }
+
+  .signature {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 2;
+  }
+  .signature .name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+  }
+  .back:hover { background: var(--ink); color: #fff; }
+
+  footer {
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--ink);
+    color: #b8b3a8;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 2;
+  }
+  footer .logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+  }
+
+  @media (max-width: 640px) {
+    .card { padding: 48px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="threads"></div>
+  <div class="card">
+    <div class="label">Thank you</div>
+    <h1>Welcome to<br>Tapestry Circle</h1>
+    <p class="subtitle">お申し込みありがとうございました</p>
+    <div class="divider"></div>
+
+    <div class="message">
+      <p>このたびはTHE THREAD継続コミュニティ「Tapestry Circle」にお申し込みいただき、ありがとうございます。</p>
+      <p>お支払いの確認が取れ次第、BANDコミュニティへのご招待と今後のご案内をお送りいたします。数日以内にご連絡しますので、今しばらくお待ちください。</p>
+      <p>Tapestry Circleでも引き続きお会いできるのを楽しみにしています。</p>
+    </div>
+
+    <div class="next-steps">
+      <div class="next-steps-title">― 次のステップ ―</div>
+      <ol>
+        <li>自動返信メールをご確認ください（数分以内に届きます）</li>
+        <li>メールが届かない場合は、迷惑メールフォルダもご確認ください</li>
+        <li>数日以内にBANDコミュニティへのご招待をお送りします</li>
+      </ol>
+    </div>
+
+    <div class="signature">
+      <div>レムケ なつこ / はったー</div>
+      <span class="name">THE THREAD</span>
+    </div>
+
+    <a class="back" href="./">トップページへ戻る</a>
+  </div>
+</div>
+
+<footer>
+  <div class="logo">Tapestry Circle</div>
+  <div>© Institut für Organic Business GmbH</div>
+</footer>
+
+</body>
+</html>
