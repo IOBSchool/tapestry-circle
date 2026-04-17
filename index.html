@@ -441,15 +441,8 @@
     <h2 class="section-title">お申込み情報のご登録</h2>
     <p class="form-lead">お支払い後、以下のフォームから参加情報をお送りください。<br>BANDコミュニティへのご案内をお送りいたします。</p>
 
-    <!-- FormSubmit.co (無料・自動返信対応) -->
-    <form action="https://formsubmit.co/zoomforiob@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="【Tapestry Circle】新しいお申し込みが届きました">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://iobschool.github.io/tapestry-circle/thanks.html">
-      <input type="hidden" name="_autoresponse" value="この度はTHE THREAD継続コミュニティ「Tapestry Circle」にお申し込みいただき、ありがとうございます。&#10;&#10;お支払いの確認が取れ次第、BANDコミュニティへのご招待と今後のご案内をお送りいたします。数日以内にご連絡しますので、今しばらくお待ちください。&#10;&#10;Tapestry Circleでも引き続きお会いできるのを楽しみにしています。&#10;&#10;レムケ なつこ / はったー&#10;THE THREAD">
-      <input type="hidden" name="_replyto" value="">
-      <input type="text" name="_honey" style="display:none">
+    <!-- Google Apps Script 連携フォーム -->
+    <form id="apply-form">
       <div>
         <label>お名前<span class="req">*</span></label>
         <input type="text" name="name" required>
@@ -471,10 +464,10 @@
         <textarea name="message"></textarea>
       </div>
       <label class="agree">
-        <input type="checkbox" name="agreement" value="同意済み" required>
+        <input type="checkbox" name="agreement" required>
         <span><a href="terms.html" target="_blank" rel="noopener">コミュニティ規約</a>および<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、内容に同意します。（返金不可・解約は次回更新日の1週間前までの手続きが必要です）</span>
       </label>
-      <button type="submit" class="submit">送信する</button>
+      <button type="submit" class="submit" id="submit-btn">送信する</button>
       <p class="form-note">※ご入力いただいた情報は、Tapestry Circleの運営のみに使用いたします。</p>
     </form>
   </div>
@@ -488,9 +481,41 @@
 </footer>
 
 <script>
-document.querySelector('form').addEventListener('submit', function() {
-  var email = this.querySelector('input[name="email"]').value;
-  this.querySelector('input[name="_replyto"]').value = email;
+var GAS_URL = "https://script.google.com/macros/s/AKfycbyCPdqGWGOZb7PPQloZPJnRBYPOPInCVg9ej6s0gvkvXnO0VXPvGwZJUrLrz85QDzUQ/exec";
+
+document.getElementById("apply-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var btn = document.getElementById("submit-btn");
+  btn.disabled = true;
+  btn.textContent = "送信中...";
+
+  var data = {
+    name: this.querySelector('[name="name"]').value,
+    email: this.querySelector('[name="email"]').value,
+    address: this.querySelector('[name="address"]').value,
+    plan: this.querySelector('[name="plan"]').value,
+    message: this.querySelector('[name="message"]').value
+  };
+
+  fetch(GAS_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(result) {
+    if (result.result === "success") {
+      window.location.href = "thanks.html";
+    } else {
+      alert("送信中にエラーが発生しました。もう一度お試しください。");
+      btn.disabled = false;
+      btn.textContent = "送信する";
+    }
+  })
+  .catch(function() {
+    alert("通信エラーが発生しました。インターネット接続を確認して、もう一度お試しください。");
+    btn.disabled = false;
+    btn.textContent = "送信する";
+  });
 });
 </script>
 </body>
