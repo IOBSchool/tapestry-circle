@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個別セッション｜Tapestry Circle</title>
+<meta name="description" content="Tapestry Circle 参加者限定。整えるためではなく、戻るための時間。はったー個別コーチング／なつこさん個別セッション。">
+<meta property="og:title" content="個別セッション｜Tapestry Circle">
+<meta property="og:description" content="整えるためではなく、戻るための時間。Tapestry Circle参加者限定の個別セッション。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #2a2a2e;
+    --ink-soft: #555;
+    --bg: #f6f3ee;
+    --bg-card: #ffffff;
+    --line: #d9d3c7;
+    --accent: #8a1e3f;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Serif JP", serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.95;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif-en { font-family: "Cormorant Garamond", serif; letter-spacing: 0.02em; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 96px 24px 88px;
+    text-align: center;
+    background: linear-gradient(180deg, #faf8f4 0%, #f3ede3 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-tagline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-title {
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-sub {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--ink-soft);
+    line-height: 2.1;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .hero-badge {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 10px 22px;
+    border: 1px solid var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
+
+  section { padding: 88px 24px; position: relative; }
+  .container { max-width: 880px; margin: 0 auto; }
+  .section-label {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.4vw, 30px);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+  .section-title .en {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* CONCEPT */
+  .concept { background: #fdfbf6; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .concept-lead {
+    text-align: center;
+    font-size: clamp(15px, 2vw, 17px);
+    color: var(--ink);
+    line-height: 2.1;
+    margin-bottom: 32px;
+  }
+  .concept-box {
+    max-width: 620px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 36px 28px;
+    text-align: center;
+    border-left: 3px solid var(--accent);
+  }
+  .concept-box p { margin: 4px 0; font-size: 15px; line-height: 2.1; }
+  .concept-box .accent {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--accent);
+    font-size: 19px;
+    letter-spacing: 0.04em;
+    margin: 8px 0;
+    line-height: 1.7;
+  }
+
+  /* SESSIONS */
+  .sessions {
+    display: grid;
+    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 24px;
+  }
+  .session {
+    background: #fff;
+    padding: 40px 32px;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+  }
+  .session-no {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .session-name {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .session-meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .session-price {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: center;
+    margin: 8px 0 4px;
+  }
+  .session-price small {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-left: 4px;
+    font-family: "Noto Serif JP", serif;
+  }
+  .session-tax {
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 0.06em;
+  }
+  .session-role {
+    background: #fdfbf6;
+    padding: 18px 20px;
+    margin: 0 0 18px;
+    border-left: 2px solid var(--accent);
+    font-size: 14px;
+  }
+  .session-role b {
+    display: block;
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .session ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .session ul li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    line-height: 1.9;
+  }
+  .session ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .session-quote {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    text-align: center;
+    color: var(--ink);
+    font-size: 15px;
+    margin: 10px 0 24px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+  .session-quote .ja {
+    display: block;
+    font-family: "Noto Serif JP", serif;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* pay buttons */
+  .pay-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+  .btn {
+    display: block;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+    text-align: center;
+    border: 1px solid var(--ink);
+  }
+  .btn-stripe { background: var(--ink); color: #fff; }
+  .btn-stripe:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-paypal { background: #fff; color: var(--ink); }
+  .btn-paypal:hover { background: var(--bg); }
+  .btn-bank { background: #fff; color: var(--ink-soft); border-style: dashed; }
+  .btn-bank:hover { color: var(--accent); border-color: var(--accent); }
+  .btn-form {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .btn-form:hover { background: #6a1530; }
+
+  /* TARGET */
+  .target { background: #fdfbf6; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .target-list {
+    max-width: 640px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+  }
+  .target-list .item {
+    background: #fff;
+    padding: 16px 22px;
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .target-note {
+    max-width: 640px;
+    margin: 32px auto 0;
+    background: #fff;
+    padding: 24px 26px;
+    border: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 2;
+  }
+  .target-note b { color: var(--ink); font-weight: 500; }
+
+  /* APPLY */
+  .apply-lead {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 32px;
+  }
+
+  /* BACK link */
+  .back {
+    text-align: center;
+    padding: 32px 24px 0;
+  }
+  .back a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .back a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 24px;
+    text-align: center;
+    background: var(--ink);
+    color: #b8b3a8;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    margin-top: 48px;
+  }
+  footer .logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 0.12em;
+  }
+  footer a { color: #b8b3a8; text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: #fff; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 72px 22px 64px; }
+    section { padding: 64px 20px; }
+    .session { padding: 32px 24px; }
+    .concept-box { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tagline">Individual Session</div>
+  <h1 class="hero-title">整えるためではなく、<br><em>戻るための時間</em>。</h1>
+  <p class="hero-sub">
+    変わるためではない。<br>
+    答えを出すためでもない。<br>
+    自分の中にある感覚を、取り戻すための60分。
+  </p>
+  <div class="hero-badge">Tapestry Circle 参加者 限定</div>
+</header>
+
+<!-- CONCEPT -->
+<section class="concept">
+  <div class="container">
+    <div class="section-label">Concept</div>
+    <h2 class="section-title">このセッションは、<br>何のためにあるのか</h2>
+    <p class="concept-lead">
+      THE THREAD 修了後、Tapestry Circle は<br>
+      「自分に戻れる状態を、日常で維持する場」。<br><br>
+      それでも日常の中では、<br>
+      なんとなくズレている感覚、<br>
+      自分では整理しきれない違和感、<br>
+      大きな選択の前後の揺れが、生まれることがあります。
+    </p>
+    <div class="concept-box">
+      <p>このセッションは</p>
+      <p class="accent">"問題解決" ではなく、<br>"自分に戻るための微調整"</p>
+      <p>として、ご用意しました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section id="menu">
+  <div class="container">
+    <div class="section-label">Menu</div>
+    <h2 class="section-title">2つのセッションから選ぶ</h2>
+    <p class="apply-lead">
+      扱いたい揺れの種類によって、合うセッションが変わります。
+    </p>
+
+    <div class="sessions">
+      <!-- ① はったー -->
+      <div class="session" id="hatter">
+        <div class="session-no">Session 01</div>
+        <div class="session-name">はったー個別コーチング</div>
+        <div class="session-meta">1on1 コーチング・60分・Zoom</div>
+
+        <div class="session-price">¥22,000</div>
+        <div class="session-tax">（税込）</div>
+
+        <div class="session-role">
+          <b>役割：深度の調整</b>
+          思考と感情を、ていねいに整理する時間。
+        </div>
+
+        <ul>
+          <li>言葉にならない違和感を扱う</li>
+          <li>思考のズレや盲点に気づく</li>
+          <li>自分の中の整理を進める</li>
+        </ul>
+
+        <p class="session-quote">
+          "Light up what you can't see."
+          <span class="ja">― 自分では見えない部分を、一緒に照らす時間。</span>
+        </p>
+
+        <div class="pay-buttons">
+          <a class="btn btn-form" href="#apply-hatter" target="_blank" rel="noopener">お申込みフォーム</a>
+          <a class="btn btn-stripe" href="#stripe-hatter" target="_blank" rel="noopener">Stripeで決済する</a>
+          <a class="btn btn-paypal" href="#paypal-hatter" target="_blank" rel="noopener">PayPalで決済する</a>
+          <a class="btn btn-bank" href="#bank-hatter">銀行振込で申し込む</a>
+        </div>
+      </div>
+
+      <!-- ② なつこ -->
+      <div class="session" id="natsuko">
+        <div class="session-no">Session 02</div>
+        <div class="session-name">なつこさん個別セッション</div>
+        <div class="session-meta">1on1 セッション・60分・Zoom</div>
+
+        <div class="session-price">¥44,000</div>
+        <div class="session-tax">（税込）</div>
+
+        <div class="session-role">
+          <b>役割：視点の拡張と前提の揺らし</b>
+          外からの視点で、自分の前提に光を当てる時間。
+        </div>
+
+        <ul>
+          <li>自分では当たり前になっている前提に気づく</li>
+          <li>違う視点に触れることで、視野が広がる</li>
+          <li>正しさや力みを手放し、自分の感覚に戻る</li>
+        </ul>
+
+        <p class="session-quote">
+          "Step outside, return inside."
+          <span class="ja">― 外の視点に触れて、自分に戻る時間。</span>
+        </p>
+
+        <div class="pay-buttons">
+          <a class="btn btn-form" href="#apply-natsuko" target="_blank" rel="noopener">お申込みフォーム</a>
+          <a class="btn btn-stripe" href="#stripe-natsuko" target="_blank" rel="noopener">Stripeで決済する</a>
+          <a class="btn btn-paypal" href="#paypal-natsuko" target="_blank" rel="noopener">PayPalで決済する</a>
+          <a class="btn btn-bank" href="#bank-natsuko">銀行振込で申し込む</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target">
+  <div class="container">
+    <div class="section-label">For Whom</div>
+    <h2 class="section-title">こんな方へ</h2>
+    <div class="target-list">
+      <div class="item">自分なりに整理しているが、どこか引っかかる</div>
+      <div class="item">一人で抱えきれない感覚がある</div>
+      <div class="item">大きな意思決定の前後にいる</div>
+      <div class="item">少し立ち止まって、整えたい</div>
+    </div>
+
+    <div class="target-note">
+      <b>ご利用について</b><br>
+      ・本セッションは Tapestry Circle 参加者限定です。<br>
+      ・お支払い方法：Stripe／PayPal／銀行振込からお選びいただけます。<br>
+      ・お申込み・ご決済後、セッション日時の調整は <b>Tapestry Circle BAND内のDM機能</b> から、担当者と直接やりとりいただきます。<br>
+      ・実施は Zoom（オンライン）です。<br>
+      ・キャンセル・日程変更については、申込後にご案内する規約に準じます。
+    </div>
+  </div>
+</section>
+
+<!-- BACK -->
+<div class="back">
+  <a href="./">← Tapestry Circle トップへ戻る</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Tapestry Circle</div>
+  <div>© Institut für Organic Business GmbH</div>
+  <div style="margin-top: 12px;">
+    <a href="./terms.html">利用規約</a>
+    <a href="./privacy.html">プライバシーポリシー</a>
+  </div>
+</footer>
+
+</body>
+</html>
