@@ -13,12 +13,22 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --ink: #2a2a2e;
-    --ink-soft: #555;
-    --bg: #f6f3ee;
-    --bg-card: #ffffff;
-    --line: #d9d3c7;
-    --accent: #8a1e3f;
+    --ink: #2B2318;
+    --ink-soft: #6B5F4E;
+    --bg: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-alt: #FFFFFF;
+    --line: #E4DCC8;
+    --accent: #C9822E;
+    --accent-hover: #A5691E;
+    --footer-ink: #9B93B0;
+    --footer-line: #6B5F4E;
+    --hero-bg1: #191428;
+    --hero-bg2: #2A2140;
+    --hero-panel: rgba(25,20,40,0.72);
+    --hero-border: rgba(255,255,255,0.14);
+    --hero-ink: #F4EEDF;
+    --hero-ink-soft: #C9BFA0;
   }
   html { scroll-behavior: smooth; }
   body {
@@ -36,14 +46,15 @@
     position: relative;
     padding: 96px 24px 88px;
     text-align: center;
-    background: linear-gradient(180deg, #faf8f4 0%, #f3ede3 100%);
-    border-bottom: 1px solid var(--line);
+    background: linear-gradient(160deg, var(--hero-bg1) 0%, var(--hero-bg2) 100%);
+    border-bottom: 1px solid var(--hero-border);
   }
   .hero-tagline {
     font-family: "Cormorant Garamond", serif;
     font-size: 13px;
     letter-spacing: 0.35em;
     color: var(--accent);
+    
     text-transform: uppercase;
     margin-bottom: 22px;
   }
@@ -53,11 +64,12 @@
     line-height: 1.6;
     letter-spacing: 0.04em;
     margin-bottom: 28px;
+    color: var(--hero-ink);
   }
   .hero-title em { font-style: normal; color: var(--accent); }
   .hero-sub {
     font-size: clamp(14px, 1.8vw, 16px);
-    color: var(--ink-soft);
+    color: var(--hero-ink-soft);
     line-height: 2.1;
     max-width: 540px;
     margin: 0 auto;
@@ -66,7 +78,8 @@
     display: inline-block;
     margin-top: 28px;
     padding: 10px 22px;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--hero-ink-soft);
+    color: var(--hero-ink);
     font-size: 12px;
     letter-spacing: 0.18em;
   }
@@ -77,7 +90,7 @@
     font-family: "Cormorant Garamond", serif;
     font-size: 14px;
     letter-spacing: 0.3em;
-    color: var(--accent);
+    color: var(--ink-soft);
     text-transform: uppercase;
     margin-bottom: 12px;
     text-align: center;
